@@ -1,146 +1,87 @@
 # Tech Challenge | NPS Preditivo em E-commerce
 
-## Transformando dados operacionais em experiência do cliente
+## 1. Objetivo do Projeto
+
+Este projeto tem como objetivo identificar os principais fatores que impactam a satisfação do cliente (NPS) em um e-commerce, utilizando dados operacionais.
+
+A proposta é transformar uma análise reativa (após a coleta do NPS) em uma abordagem proativa, permitindo antecipar problemas e apoiar decisões de negócio para melhorar a experiência do cliente.
 
 ---
 
-## Sobre o Projeto
+## 2. Descrição da Base de Dados
 
-Com o crescimento acelerado do e-commerce, garantir uma boa experiência do cliente se tornou um desafio operacional.
+A base contém informações operacionais relacionadas à jornada do cliente, incluindo:
 
-Neste projeto, atuei como cientista de dados com o objetivo de responder uma pergunta central:
+- `customer_id`: Identificador único do cliente  
+- `order_id`: Identificador único do pedido  
+- `customer_age`: Idade do cliente  
+- `customer_region`: Região geográfica do cliente  
+- `customer_tenure_months`: Tempo de relacionamento do cliente com a empresa (em meses)  
+- `order_value`: Valor total do pedido  
+- `items_quantity`: Quantidade de itens no pedido  
+- `discount_value`: Valor de desconto aplicado ao pedido  
+- `payment_installments`: Número de parcelas do pagamento  
+- `delivery_time_days`: Tempo total de entrega (em dias)  
+- `delivery_delay_days`: Quantidade de dias de atraso na entrega  
+- `freight_value`: Valor do frete  
+- `delivery_attempts`: Número de tentativas de entrega  
+- `customer_service_contacts`: Número de contatos do cliente com o atendimento  
+- `resolution_time_days`: Tempo para resolução de problemas (em dias)  
+- `complaints_count`: Número de reclamações registradas pelo cliente  
+- `repeat_purchase_30d`: Indica se houve recompra em até 30 dias (0 = não, 1 = sim)  
+- `csat_internal_score`: Score interno de satisfação do cliente  
+- `nps_score`: Nota de satisfação do cliente (NPS), variando de 0 a 10  
 
-**O que realmente impacta a satisfação do cliente — e como antecipar isso antes do NPS acontecer?**
 
-A proposta foi sair do olhar reativo (pós-pesquisa) e evoluir para uma abordagem proativa, usando dados operacionais para prever e evitar insatisfação.
+Além disso, foi criada a variável:
 
----
-
-## Objetivo
-
-Identificar os principais drivers de satisfação (NPS) e gerar insights acionáveis para apoiar decisões em:
-
-- Logística  
-- Atendimento  
-- Experiência do cliente  
-
----
-
-## Problema de Negócio
-
-O NPS era coletado apenas ao final da jornada, limitando a capacidade de ação da empresa.
-
-Mesmo com indicadores operacionais semelhantes, alguns clientes se tornavam promotores enquanto outros viravam detratores.
-
-O desafio foi entender: **quais fatores realmente explicam essa diferença?**
-
----
-
-## Principais Insights
-
-### 1. Atraso na entrega é o principal driver de insatisfação
-
-- Forte correlação negativa com o NPS  
-- Quanto maior o atraso, menor a satisfação  
-
-O atraso se mostrou como a principal alavanca de melhoria.
+- `classificacao`: categorização do NPS em:
+  - Detratores (0–6)
+  - Neutros (7–8)
+  - Promotores (9–10)
 
 ---
 
-### 2. Reclamações são reflexo de falhas na jornada
+## 3. Metodologia Utilizada
 
-- Detratores concentram mais reclamações  
-- Indicam fricção acumulada na experiência  
+A análise foi conduzida com foco em negócio, seguindo as etapas:
 
----
+### 3.1 Entendimento do problema
+- Identificação do papel do NPS no e-commerce  
+- Mapeamento das áreas impactadas (logística, atendimento, estratégia)  
 
-### 3. Tempo de resolução impacta, mas menos
+### 3.2 Análise Exploratória de Dados (EDA)
+- Distribuição das variáveis  
+- Análise de correlação entre variáveis operacionais e NPS  
+- Segmentação por classificação (Detratores, Neutros, Promotores)  
 
-- Influência moderada  
-- O problema maior é a ocorrência de falhas, não apenas o tempo de resolução  
-
----
-
-## Ponto de Ruptura na Experiência
-
-Foi identificado um limite claro de tolerância do cliente:
-
-| Faixa de atraso | NPS médio |
-|----------------|----------|
-| 0–2 dias       | ~5.0     |
-| 3–5 dias       | ~2.9     |
-| 6+ dias        | ~0.8     |
-
-A partir de aproximadamente 3 dias de atraso, há uma queda acentuada no NPS, caracterizando um ponto de ruptura na experiência.
+### 3.3 Identificação de padrões
+- Comparação de métricas operacionais entre grupos  
+- Análise de variáveis críticas (atraso, reclamações, tempo de resolução)  
+- Identificação de ponto de ruptura na experiência  
 
 ---
 
-## Perfil dos Clientes
+## 4. Principais Resultados
 
-### Promotores
-- Entrega no prazo  
-- Baixa ou nenhuma ocorrência de problemas  
-- Experiência fluida  
-
-### Detratores
-- Atrasos na entrega  
-- Necessidade de suporte  
-- Problemas acumulados ao longo da jornada  
+- Atraso na entrega é o principal fator de impacto negativo no NPS  
+- Clientes com mais reclamações tendem a ser detratores  
+- Existe um ponto de ruptura a partir de aproximadamente 3 dias de atraso  
+- A experiência do cliente é impactada pelo acúmulo de fricções ao longo da jornada  
 
 ---
 
-## Insight Estratégico
+## 5. Como Reproduzir a Análise
 
-O cliente tende a tolerar pequenos problemas isolados, mas não tolera a fricção acumulada ao longo da experiência.
+### Pré-requisitos
 
----
+- Python 3.x  
+- Bibliotecas:
+  - pandas  
+  - seaborn  
+  - matplotlib  
 
-## Áreas Impactadas
+Instalação:
 
-- Logística  
-- Atendimento  
-- Experiência do cliente (CX)  
-- Estratégia  
-
----
-
-## Abordagem Analítica
-
-- Análise exploratória de dados (EDA) orientada a negócio  
-- Correlação entre variáveis operacionais e NPS  
-- Segmentação de clientes (Detratores, Neutros e Promotores)  
-- Identificação de padrões e pontos de ruptura  
-
----
-
-## Tecnologias Utilizadas
-
-- Python  
-- Pandas  
-- Seaborn  
-- Matplotlib  
-- Jupyter Notebook  
-
----
-
-## Recomendações
-
-- Reduzir entregas com atraso superior a 3 dias  
-- Criar alertas para pedidos com risco de atraso  
-- Priorizar clientes com múltiplas interações  
-- Atuar preventivamente antes da insatisfação  
-
----
-
-## Conclusão
-
-O NPS se mostrou diretamente ligado à eficiência operacional, especialmente à logística e ao tratamento de problemas.
-
-Ao antecipar falhas como atrasos e fricções no atendimento, é possível evoluir de uma abordagem reativa para uma estratégia proativa de experiência do cliente.
-
----
-
-## Autores:
-
-RM373099 - LUIZ GUILHERME GENUINO <br>
-RM373570 - VICTOR BRYAN MOTA SILVA
+```bash
+pip install pandas seaborn matplotlib
