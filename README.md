@@ -1,4 +1,4 @@
-# Tech Challenge | NPS 
+# Tech Challenge | Case NPS 
 
 ## Transformando dados operacionais em experiência do cliente
 
