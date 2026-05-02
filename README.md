@@ -1,4 +1,4 @@
-# Tech Challenge | NPS Preditivo em E-commerce
+# Tech Challenge | NPS 
 
 ## Transformando dados operacionais em experiência do cliente
 
