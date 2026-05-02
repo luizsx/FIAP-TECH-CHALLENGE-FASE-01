@@ -6,7 +6,7 @@
 
 ## 1. Sobre o Projeto
 
-Com o crescimento acelerado do e-commerce, garantir uma boa experiência do cliente se tornou um desafio operacional.
+Com o crescimento acelerado das empresas, garantir uma boa experiência do cliente se tornou um desafio operacional.
 
 Neste projeto, o objetivo foi responder a seguinte pergunta de negócio:
 
@@ -146,3 +146,11 @@ Instale as dependências:
 
 ```bash
 pip install pandas seaborn matplotlib notebook
+```
+
+
+## 11. AUTORES <br>
+RM373099 - LUIZ GUILHERME GENUINO <br>
+RM373570 - VICTOR BRYAN MOTA SILVA<br><br>
+
+
