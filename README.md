@@ -149,7 +149,7 @@ pip install pandas seaborn matplotlib notebook
 ```
 
 
-## 11. AUTORES <br>
+## 11. Autores <br>
 RM373099 - LUIZ GUILHERME GENUINO <br>
 RM373570 - VICTOR BRYAN MOTA SILVA<br><br>
 
